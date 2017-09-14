@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequestMapping("/example3")
@@ -15,6 +16,18 @@ public class Example3Controller {
 
     public static final String FORM_VIEW = "form";
     public static final String RESULT = "result";
+
+    /*// Forma #1 para redireccionar
+    @GetMapping("/")
+    public String redirect(){
+        return "redirect:/example3/showform";
+    }*/
+
+    // Forma #2 para redireccionar
+    @GetMapping("/")
+    public RedirectView redirectView(){
+        return new RedirectView("/example3/showForm");
+    }
 
     @GetMapping("/showform")
     public String showForm(Model model){
