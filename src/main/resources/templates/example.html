@@ -5,6 +5,7 @@
     <title>Hello</title>
 </head>
 <body>
-    <h1>Hello <span th:text="${name}"></span>!</h1><!--"${}" es la forma en que Thymeleaf muestra un dato-->
+    <h1>Hello <span th:text="${person.name}"></span>!</h1><!--"${}" es la forma en que Thymeleaf muestra un dato-->
+    <h1>Tienes <span th:text="${person.age}"></span> años de edad</h1>
 </body>
 </html>

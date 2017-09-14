@@ -1,5 +1,6 @@
 package com.udemy.backendninja.controller;
 
+import com.udemy.backendninja.model.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ public class ExampleController {
     // Primera forma - Para redireccionar las plantillas
     @RequestMapping(value = "/exampleString", method = RequestMethod.GET) // Anotación usada porque se trata de una petición Get y se le indica la ruta.
     public String exampleString(Model model){
-        model.addAttribute("name","Pierre"); // En el modelAtribute se ingresa el nombre de la variable seguido del valor
+        model.addAttribute("person",new Person("Pierre",25)); // En el modelAtribute se ingresa el nombre de la variable seguido del valor
         return EXAMPLE_VIEW; // Se mostrará la plantilla example.html
     }
 
@@ -24,7 +25,7 @@ public class ExampleController {
     @GetMapping("/exampleMAV") // Anotación usada porque se trata de una petición Get y se le indica la ruta.
     public ModelAndView exampleMAV(){
         ModelAndView mav = new ModelAndView(EXAMPLE_VIEW);
-        mav.addObject("name","Pierre");
+        mav.addObject("person",new Person("Pierre",25));
         return mav; // Se mostrará la vista example.html
     }
 
