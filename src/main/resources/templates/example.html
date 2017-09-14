@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Hello</title>
 </head>
 <body>
-    <h1>Hello <span th:text="${person.name}"></span>!</h1><!--"${}" es la forma en que Thymeleaf muestra un dato-->
-    <h1>Tienes <span th:text="${person.age}"></span> años de edad</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody th:each="person:${people}"><!--Hace un recorrido por people y saca un objeto person en cada pasada-->
+            <tr>
+                <th th:text="${person.name}"></th>
+                <th th:text="${person.age}"></th>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
