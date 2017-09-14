@@ -10,7 +10,7 @@ public class HelloWorldController {
 
     @GetMapping("/helloworld") // Anotación usada porque se trata de una petición Get y se le indica la ruta.
     public String helloWorld(){
-        return "helloworld"; // Se mostrará la plantilla helloworld.html
+        return "helloworld"; // Retornamos la vista helloworld
     }
 
 }
